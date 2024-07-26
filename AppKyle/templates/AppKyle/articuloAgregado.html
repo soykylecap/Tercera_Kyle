@@ -1,0 +1,24 @@
+{% extends 'AppKyle/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <p class="display-6">{{articulo.producto}} ha sido agregado.</p>
+                            <a class="btn btn-primary rounded-pill mt-5" href="{% url 'AgregarArticulos' %}">Agregar nuevo articulo</a> 
+                            <a class="btn btn-primary rounded-pill mt-5" href="{% url 'Articulos' %}">Volver a articulos</a> 
+                            <a class="btn btn-primary rounded-pill mt-5" href="{% url 'Inicio' %}">Ir al inicio</a> 
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock main %}

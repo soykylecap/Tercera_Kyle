@@ -8,3 +8,9 @@ urlpatterns = [
     path('clientes/', views.clientes, name='Clientes'),
     
 ]
+
+urlpatterns += [
+    path('articulos/agregarArticulos/', views.agregarArticulos, name='AgregarArticulos'),
+    path('articulos/buscarArticulos/', views.buscarArticulos, name='BuscarArticulos'),
+    
+]

@@ -5,6 +5,8 @@ from django.db import models
 class Articulos(models.Model):
     producto = models.CharField(max_length=25, help_text = "Maximo 25 caracteres")
     precio = models.FloatField()
+    def __str__(self):
+        return f"{self.producto} || Precio: {self.precio}"
 
 class Gastos(models.Model):
     fecha = models.DateField(auto_now=True)
