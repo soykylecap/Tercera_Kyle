@@ -10,7 +10,9 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('articulos/agregarArticulos/', views.agregarArticulos, name='AgregarArticulos'),
-    path('articulos/buscarArticulos/', views.buscarArticulos, name='BuscarArticulos'),
+    path('articulos/articulos_agregar/', views.agregarArticulos, name='AgregarArticulos'),
+    path('articulos/articulos_buscar/', views.buscarArticulos, name='BuscarArticulos'),
+    path('clientes/clientes_agregar/', views.agregarClientes, name='AgregarClientes'),
+    path('clientes/clientes_buscar/', views.buscarClientes, name='BuscarClientes'),
     
 ]

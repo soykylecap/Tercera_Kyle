@@ -9,13 +9,16 @@
         <section id="scroll">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'AppKyle/assets/img/01.jpg' %}" alt="..." /></div>
-                    </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Gastos</h2>
-                            <p>Desde acá vamos a manejar los gastos.</p>
+                            <h2 class="display-4">Buscar clientes</h2>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <table>
+                                    {{ miFormulario.as_table }}
+                                </table>
+                                <input class="btn btn-primary rounded-pill mt-5" type="submit" value="Buscar">
+                            </form>
                         </div>
                     </div>
                 </div>

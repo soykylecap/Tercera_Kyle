@@ -1,0 +1,35 @@
+{% extends 'AppKyle/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <p class="display-6">Resultado de la busqueda:</p>
+                    <ul class="table-responsive">
+                        {% for cliente in cliente %}
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Correo: {{cliente.email}}</h6>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </ul>
+            
+                    <a class="btn btn-primary rounded-pill mt-5" href="{% url 'BuscarClientes' %}">Nueva busqueda</a> 
+                    <a class="btn btn-primary rounded-pill mt-5" href="{% url 'Clientes' %}">Volver a clientes</a> 
+                    <a class="btn btn-primary rounded-pill mt-5" href="{% url 'Inicio' %}">Ir al inicio</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock main %}
