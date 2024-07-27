@@ -16,5 +16,21 @@ class ClientesFormBusca(forms.Form):
     nombre = forms.CharField(max_length=40, required=False)
     apellido = forms.CharField(max_length=40, required=False)
 
+class GastosFormAlta(forms.Form):
+    fecha = forms.DateField()
+    detalle = forms.CharField(max_length=30)
+    area = forms.CharField(max_length=30, widget=forms.Select(choices=[
+            ('GEN', 'Generales'),
+            ('DIS', 'Distribución'),
+            ('DEP', 'Depósito'),
+            ('ADM', 'Administración')
+        ]))
+    importe = forms.FloatField()
 
-
+class GastosFormBusca(forms.Form):
+    area = forms.CharField(max_length=30, widget=forms.Select(choices=[
+            ('GEN', 'Generales'),
+            ('DIS', 'Distribución'),
+            ('DEP', 'Depósito'),
+            ('ADM', 'Administración')
+        ]))

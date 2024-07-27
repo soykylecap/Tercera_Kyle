@@ -14,5 +14,7 @@ urlpatterns += [
     path('articulos/articulos_buscar/', views.buscarArticulos, name='BuscarArticulos'),
     path('clientes/clientes_agregar/', views.agregarClientes, name='AgregarClientes'),
     path('clientes/clientes_buscar/', views.buscarClientes, name='BuscarClientes'),
+    path('gastos/gastos_agregar/', views.agregarGastos, name='AgregarGastos'),
+    path('gastos/gastos_buscar/', views.buscarGastos, name='BuscarGastos'),
     
 ]

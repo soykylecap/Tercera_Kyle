@@ -1,0 +1,29 @@
+{% extends 'AppKyle/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Agregar gastos</h2>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <table>
+                                    {{ miFormulario.as_table }}
+                                </table>
+                                <input class="btn btn-primary rounded-pill mt-5" type="submit" value="Agregar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock main %}

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from AppKyle.forms import ArticulosFormAlta, ArticulosFormBusca, ClientesFormAlta, ClientesFormBusca 
-from AppKyle.models import Articulos, Clientes
+from AppKyle.forms import ArticulosFormAlta, ArticulosFormBusca, ClientesFormAlta, ClientesFormBusca, GastosFormAlta, GastosFormBusca
+from AppKyle.models import Articulos, Clientes, Gastos
+from datetime import datetime
 
 # Create your views here.
 def inicio(request):
@@ -18,6 +19,7 @@ def clientes(request):
 
 
 #Articulos
+#-----------------------------------------------------------------------------------
 
 def agregarArticulos(request):
     if request.method == "POST":
@@ -50,6 +52,7 @@ def buscarArticulos(request):
 
 
 #Clientes
+#-----------------------------------------------------------------------------------
 
 def agregarClientes(request):
     if request.method == "POST":
@@ -87,4 +90,35 @@ def buscarClientes(request):
         miFormulario = ClientesFormBusca()
 
     return render(request, "AppKyle/clientes_buscar.html", {"miFormulario": miFormulario})
+
+
+#Gastos
+#-----------------------------------------------------------------------------------
+
+def agregarGastos(request):
+    if request.method == "POST":
+        miFormulario = GastosFormAlta(request.POST) 
+        
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            gasto = Gastos(fecha=informacion["fecha"], detalle=informacion["detalle"], area=informacion["area"], importe=informacion["importe"])
+            gasto.save()
+            return render(request, "AppKyle/gastos_agregar_ok.html", {"gasto": gasto})
+    else:
+        miFormulario = GastosFormAlta(initial={'fecha': datetime.now().date()})
+
+    return render(request, "AppKyle/gastos_agregar.html", {"miFormulario": miFormulario})
+
+
+def buscarGastos(request):
+    if request.method == "POST":
+        miFormulario = GastosFormBusca(request.POST) 
+
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            gastos = Gastos.objects.filter(area=informacion["area"])
+            return render(request, "AppKyle/gastos_buscar_resultados.html", {"gastos":gastos})
+    else:
+        miFormulario = GastosFormBusca()
+    return render(request, "AppKyle/gastos_buscar.html", {"miFormulario": miFormulario})
 

@@ -1,0 +1,37 @@
+{% extends 'AppKyle/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <p class="display-6">Resultado de la busqueda:</p>
+                    <ul class="table-responsive">
+                        {% for gasto in gastos %}
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">fecha: {{gasto.fecha}}</h6>
+                                    <h5 class="card-title">{{gasto.detalle}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Area: {{gasto.area}}</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">Importe: {{gasto.importe}}</h6>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </ul>
+            
+                    <a class="btn btn-primary rounded-pill mt-5" href="{% url 'BuscarGastos' %}">Nueva busqueda</a> 
+                    <a class="btn btn-primary rounded-pill mt-5" href="{% url 'Gastos' %}">Volver a gastos</a> 
+                    <a class="btn btn-primary rounded-pill mt-5" href="{% url 'Inicio' %}">Ir al inicio</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock main %}

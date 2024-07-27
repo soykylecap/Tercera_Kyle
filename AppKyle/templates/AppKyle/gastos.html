@@ -1,0 +1,24 @@
+{% extends 'AppKyle/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Gastos</h2>
+                            <p>En esta sección podes gestionar los gastos.</p>
+                            <a class="btn btn-primary rounded-pill mt-5" href="{% url 'AgregarGastos' %}">Agregar gastos</a> 
+                            <a class="btn btn-primary rounded-pill mt-5" href="{% url 'BuscarGastos' %}">Buscar gastos</a> 
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock main %}

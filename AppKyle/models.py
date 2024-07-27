@@ -13,6 +13,8 @@ class Gastos(models.Model):
     detalle = models.CharField(max_length=30)
     area = models.CharField(max_length=30, choices=[('GEN','Generales'), ('DIS','Distribucion'), ('DEP','Deposito'), ('ADM','Administracion')])
     importe = models.FloatField()
+    def __str__(self):
+        return f"{self.fecha} | {self.detalle} | {self.area} | {self.importe}"
 
 class Clientes(models.Model):
     nombre = models.CharField(max_length=40)
